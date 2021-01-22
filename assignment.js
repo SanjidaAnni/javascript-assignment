@@ -17,21 +17,26 @@ function budgetCalculator(watch = 0, phone = 0, laptop = 0) {
 
 
 // Problem-3: Hotel Cost
-function hotelCost(days) {
+function hotelCost(totalDays) {
     var totalCost = 0;
-    if (days > 20) {
-        totalCost = 10 * 100 + 10 * 80 + (days - 20) * 50;
+    if (totalDays <= 10) {
+        totalCost = totalDays * 100;
     }
-    else if (10 < days <= 20) {
-        totalCost = 10 * 100 + (days - 10) * 80;
+    else if (totalDays <= 20) {
+        var first10Days = 10 * 100;
+        var remainingDays = totalDays - 10;
+        second10Days = remainingDays * 80;
+        totalCost = first10Days + second10Days;
     }
     else {
-        totalCost = 10 * 100
+        var first10Days = 10 * 100;
+        var second10Days = 10 * 80;
+        var remainingDays = totalDays - 20;
+        var nextDays = remainingDays * 50;
+        totalCost = first10Days + second10Days + nextDays;
     }
     return totalCost;
 }
-var result = hotelCost(2);
-console.log(result);
 
 
 
